@@ -10,7 +10,7 @@ int main()
 	cout << "------------" << endl;
 	cout << "Hello world." << endl;
 	cout << " Using cmake!" << endl;
-	cout << " - Johary" << endl;
+	cout << " - Sure" << endl;
 	cout << "------------" << endl;
 	return 0;
 }

@@ -1,8 +1,15 @@
 FROM ubuntu:latest
 
+# Use secrets to authenticate
+RUN --mount=type=secret,id=tusername --mount=type=secret,id=tpassword \
+    echo Connection string: Username=$(cat /run/secrets/tusername) Password=$(cat /run/secrets/tpassword)
+
+
+
 # Install necessary packages
 RUN apt-get update && \
-    apt-get install -y build-essential cmake gdb openssh-server
+    apt-get install -y build-essential cmake gdb openssh-server && \
+    rm -rf /var/lib/apt/lists/*
 
 # Create a user for SSH
 RUN useradd -m -s /bin/bash dockeruser && \
